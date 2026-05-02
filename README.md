@@ -1,0 +1,2 @@
+# Intermuscular-Coherence-Analysis-in-Robot-Aided-Isometric-Wrist-Tasks
+Developed an experimental framework to analyze intermuscular coherence (IMC) from EMG signals during robot-aided isometric wrist tasks. Conducted a pilot study to evaluate how neuromuscular coordination varies with wrist posture, interaction force, and movement direction, contributing toward EMG-based biomarkers for motor impairment assessment.
