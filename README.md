@@ -1,6 +1,8 @@
 # Intermuscular-Coherence-Analysis-in-Robot-Aided-Isometric-Wrist-Tasks
 This work was towards my thesis, where I developed an experimental framework to analyze intermuscular coherence (IMC) from EMG signals during robot-aided isometric wrist tasks. A pilot study was conducted to evaluate how neuromuscular coordination varies with wrist posture, interaction force, and movement direction, contributing toward EMG-based biomarkers for motor impairment assessment.
 
+**Original Thesis Title:**  
+*Intermuscular Coherence during Robot-Aided Isometric Wrist Tasks: A Pilot Study on the Role of Wrist Posture and Interaction Force*
 
 # 🧠 Intermuscular Coherence Analysis in Robot-Aided Wrist Tasks Using EMG
 
@@ -12,25 +14,21 @@ Developed an experimental framework to analyze **intermuscular coherence (IMC)**
 ## ⚙️ System Overview
 
 ### 🏗️ Experimental Setup
-![Experimental Setup](images/setup.png)
 
-Robot-assisted wrist exoskeleton used to perform controlled isometric torque generation tasks. The system enables repeatable experiments while synchronizing EMG signals with mechanical outputs.
+A robot wrist exoskeleton used to perform controlled isometric torque generation tasks. The system enables repeatable experiments while synchronizing EMG signals with mechanical outputs.
 
 ---
 
 ### 🖥️ Real-Time GUI
-![GUI](images/gui.png)
 
 Custom-built interface providing real-time feedback:
-- Torque represented as a 2D cursor  
+- Torque represented as a 2D vector  
 - Target regions guide user input  
 - Enables consistent task execution across trials  
 
 ---
 
 ## 📡 EMG Signal Processing Pipeline
-
-![EMG Pipeline](images/emg_pipeline.png)
 
 End-to-end pipeline for EMG analysis:
 - Multi-channel EMG acquisition (forearm and arm muscles)  
@@ -42,8 +40,6 @@ End-to-end pipeline for EMG analysis:
 ---
 
 ## 📊 Intermuscular Coherence Results
-
-![Results](images/results_heatmap.png)
 
 Coherence computed across all muscle pairs to quantify neuromuscular coupling.
 
@@ -95,4 +91,3 @@ Coherence computed across all muscle pairs to quantify neuromuscular coupling.
 
 ---
 
-## 📎 Repository Structure
