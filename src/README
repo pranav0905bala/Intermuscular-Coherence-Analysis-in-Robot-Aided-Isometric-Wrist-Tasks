@@ -1,1 +1,192 @@
 
+## 🚀 Running the MATLAB IMC Analysis Pipeline
+
+This repository implements a full pipeline for analyzing **intermuscular coherence (IMC)** from EMG signals recorded during isometric wrist tasks.
+
+---
+
+## 📦 Prerequisites
+
+* MATLAB (tested on R2023b or later)
+* Signal Processing Toolbox (required for `mscohere`, `butter`, `filtfilt`)
+* EMG data in CSV format (Trigno system format)
+
+---
+
+## 📁 Project Structure (Relevant)
+
+```
+scripts/
+  run_pipeline.m
+  analyze_conditions.m
+  generate_figures.m
+
+src/
+  preprocessing/
+  coherence/
+  utils/
+```
+
+---
+
+## ▶️ Step-by-Step Execution
+
+### **1. Set File Paths**
+
+Open:
+
+```
+scripts/run_pipeline.m
+```
+
+Update the file paths to your dataset:
+
+```matlab
+P1_C1_robot_files = {...};
+P1_C1_emg_files   = {...};
+```
+
+Make sure:
+
+* Robot data and EMG data correspond to the same trials
+* File ordering matches repetitions
+
+---
+
+### **2. Run the Processing Pipeline**
+
+In MATLAB:
+
+```matlab
+cd scripts
+run_pipeline
+```
+
+This step:
+
+* Loads raw EMG + robot data
+* Segments trials based on timestamps
+* Applies high-pass filtering
+* Computes intermuscular coherence
+* Computes Z-scores across muscle pairs
+
+✅ Output:
+
+```
+results/P1_data.mat
+```
+
+---
+
+### **3. Run Analysis (Optional but Recommended)**
+
+```matlab
+analyze_conditions
+```
+
+This step:
+
+* Aggregates coherence metrics
+* Prepares data for visualization
+
+✅ Output:
+
+```
+results/analysis_results.mat
+```
+
+---
+
+### **4. Generate Figures**
+
+```matlab
+generate_figures
+```
+
+This step:
+
+* Creates heatmaps of coherence/Z-scores
+* Saves figures in:
+
+```
+results/figures/
+```
+
+---
+
+## 📊 Output Description
+
+| Output                 | Description                    |
+| ---------------------- | ------------------------------ |
+| `P1_data.mat`          | Processed coherence + Z-scores |
+| `analysis_results.mat` | Aggregated results             |
+| `figures/*.png`        | Final visualizations           |
+
+---
+
+## 🧠 Key Processing Steps
+
+1. **Signal Preprocessing**
+
+   * High-pass filtering (removes motion artifacts)
+   * Rectification of EMG signals
+
+2. **Segmentation**
+
+   * Trials extracted using robot timestamps
+
+3. **Coherence Computation**
+
+   * Magnitude-squared coherence using `mscohere`
+
+4. **Statistical Processing**
+
+   * Confidence thresholding
+   * Fisher Z-transform
+   * Bias correction
+
+---
+
+## ⚠️ Notes
+
+* The function `extractTrignoEMG.m` must be present in:
+
+  ```
+  src/utils/
+  ```
+* Ensure sampling frequency (`fs`) matches your dataset
+* Trial segmentation assumes consistent timing offsets (can be adjusted in code)
+
+---
+
+## 🛠️ Customization
+
+You can modify:
+
+| Parameter                        | Location         |
+| -------------------------------- | ---------------- |
+| Sampling frequency (`fs`)        | `run_pipeline.m` |
+| Frequency band (e.g., beta band) | `run_pipeline.m` |
+| Filter cutoff                    | `run_pipeline.m` |
+| Segment length                   | `run_pipeline.m` |
+
+---
+
+## 🧪 Example Workflow
+
+```matlab
+cd scripts
+run_pipeline
+analyze_conditions
+generate_figures
+```
+
+---
+
+## 📌 Summary
+
+This pipeline converts raw EMG recordings into:
+
+* Intermuscular coherence metrics
+* Z-score normalized connectivity measures
+M.S. Electrical Engineering — Robotics / Biomedical Signal Processing
