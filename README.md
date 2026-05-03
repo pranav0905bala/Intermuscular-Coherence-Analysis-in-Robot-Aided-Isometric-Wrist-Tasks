@@ -55,9 +55,9 @@ Coherence computed across all muscle pairs to quantify neuromuscular coupling.
 - **Task:** Isometric wrist torque generation  
 - **Platform:** 2-DOF wrist exoskeleton  
 - **Conditions:**
-  - Neutral posture (baseline)  
-  - Flexed vs extended wrist posture  
-  - Active vs reactive force interaction  
+  - Neutral posture (Condition 1)  
+  - Flexed vs extended wrist posture (Condition 2)
+  - Active vs reactive force interaction (Condition 3)
   - Multiple torque directions (FE/RUD axes)  
 
 ---
